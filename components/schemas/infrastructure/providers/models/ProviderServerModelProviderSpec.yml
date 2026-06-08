@@ -37,3 +37,19 @@ properties:
       type: array
       items:
         type: string
+  stock:
+    type: object
+    description: Stock information for the server, keyed by location.
+    additionalProperties:
+      type: object
+      required:
+        - quantity
+        - sync
+      properties:
+        quantity:
+          type: integer
+          description: The available quantity of stock at this location.
+        sync:
+          type: string
+          format: date-time
+          description: The time at which stock was last synced.
