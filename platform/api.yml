@@ -685,7 +685,20 @@ paths:
   "/v1/monitoring/logs/aggregate":
     $ref: paths/monitoring/logs/aggregate.yml
   "/v1/monitoring/platform/monitors":
+    $ref: paths/monitoring/platform/platformMonitors.yml
+
+  ## Monitors
+  "/v1/monitoring/monitors":
     $ref: paths/monitoring/monitors/monitors.yml
+  "/v1/monitoring/monitors/{id}":
+    $ref: paths/monitoring/monitors/monitor.yml
+  "/v1/monitoring/monitors/{id}/tasks":
+    $ref: paths/monitoring/monitors/tasks.yml
+  ## Action Groups
+  "/v1/monitoring/monitors/action-groups":
+    $ref: paths/monitoring/monitors/action-groups/action-groups.yml
+  "/v1/monitoring/monitors/action-groups/{id}":
+    $ref: paths/monitoring/monitors/action-groups/action-group.yml
 
   # --Pipelines
   "/v1/pipelines":
@@ -803,7 +816,7 @@ webhooks:
             schema:
               type: array
               items:
-                $ref: ../components/schemas/monitoring/Metric.yml
+                $ref: ../components/schemas/monitoring/metrics/Metric.yml
   environmentEventsPush:
     post:
       operationId: environmentEventsPush
